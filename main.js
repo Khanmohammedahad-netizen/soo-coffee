@@ -95,16 +95,16 @@ counters.forEach(counter => {
   })
 })
 
-// Menu Carousel Horizontal Scroll Animation (Subtle Parallax)
-const cards = document.querySelectorAll('.menu-card')
-gsap.from(cards, {
+// Menu Collage Animation
+const collageItems = document.querySelectorAll('.collage-item')
+gsap.from(collageItems, {
   scrollTrigger: {
-    trigger: '.menu-carousel',
-    start: 'top 80%',
+    trigger: '.menu-collage',
+    start: 'top 85%',
   },
-  x: 100,
+  y: 50,
   opacity: 0,
-  stagger: 0.1,
+  stagger: 0.15,
   duration: 1,
   ease: 'power3.out'
 })

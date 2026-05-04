@@ -234,64 +234,64 @@ nav.scrolled {
   border-radius: 2px;
 }
 
-/* --- Menu Highlights --- */
+/* --- Menu Collage --- */
+.menu {
+  padding: 80px 20px;
+  background-color: var(--white);
+}
+
 .menu-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
-.menu-carousel {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  padding: 20px 0;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.menu-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-.menu-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.menu-card {
-  min-width: 300px;
-  flex: 0 0 auto;
+.collage-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
   background: #fff;
-  padding: 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  transition: transform 0.4s ease;
 }
 
-.menu-card:hover {
-  transform: translateY(-10px);
-}
-
-.menu-card img {
+.collage-item img {
   width: 100%;
-  aspect-ratio: 1/1;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.menu-card-info {
-  padding: 25px;
+.collage-item.large {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
 }
 
-.menu-card-info h3 {
-  font-size: 1.4rem;
-  margin-bottom: 5px;
+.collage-item.tall {
+  grid-row: span 2;
+  aspect-ratio: 4/5;
 }
 
-.menu-card-info p {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.menu-card-info .price {
-  font-weight: 700;
-  color: var(--accent);
-  font-size: 1.1rem;
+@media (min-width: 992px) {
+  .menu-collage {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    gap: 20px;
+  }
+  
+  .collage-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+  
+  .collage-item.tall {
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
 }
 
 /* --- Pickleball --- */
@@ -559,6 +559,25 @@ footer {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+}
+
+/* Mobile First Polish */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 3rem !important;
+  }
+  
+  .hero-content {
+    padding: 0 15px;
+  }
+  
+  .section-title {
+    font-size: 2.2rem !important;
+  }
+  
+  section {
+    padding: 60px 0;
   }
 }
 
