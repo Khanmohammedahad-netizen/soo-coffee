@@ -381,23 +381,22 @@ nav.scrolled {
 /* --- Gallery --- */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 300px;
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border: 1px solid transparent;
-  transition: border-color 0.4s ease;
+  border-radius: 15px;
+  aspect-ratio: 1 / 1;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-item:hover img {
@@ -555,6 +554,11 @@ footer {
   .stats-container {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
 
