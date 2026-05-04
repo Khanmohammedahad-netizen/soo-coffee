@@ -26,6 +26,22 @@ requestAnimationFrame(raf)
 // Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)
 
+// Mobile Menu Toggle
+const mobileToggle = document.querySelector('.mobile-toggle')
+const navLinks = document.querySelector('.nav-links')
+const navLinkItems = document.querySelectorAll('.nav-links a')
+
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active')
+  mobileToggle.classList.toggle('open')
+})
+
+navLinkItems.forEach(item => {
+  item.addEventListener('click', () => {
+    navLinks.classList.remove('active')
+  })
+})
+
 // Navbar Scroll Effect
 const nav = document.querySelector('nav')
 window.addEventListener('scroll', () => {
