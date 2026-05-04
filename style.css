@@ -660,6 +660,10 @@ footer {
     font-size: 2.2rem !important;
   }
   
+  .about-image img {
+    aspect-ratio: 16/9;
+  }
+  
   section {
     padding: 60px 0;
   }
