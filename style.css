@@ -40,12 +40,17 @@ html.lenis {
   pointer-events: none;
 }
 
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  line-height: 1.6;
+html, body {
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--white);
+  color: var(--primary);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -607,37 +612,45 @@ footer {
   font-weight: 600;
 }
 
-/* --- Responsive --- */
+/* --- Responsive Architecture --- */
+
+/* Tablets */
 @media (max-width: 992px) {
   .about-grid, .visit-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
   
   .hero h1 {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
   
-  .pickleball h2 {
+  .section-title {
     font-size: 3rem;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
-@media (max-width: 600px) {
-  nav {
-    padding: 15px 20px;
-  }
-  
+/* Mobile Devices */
+@media (max-width: 768px) {
   .hero h1 {
     font-size: 3.5rem;
   }
   
   section {
-    padding: 60px 20px;
+    padding: 60px 0;
   }
-  
+
   .stats-container {
     grid-template-columns: 1fr;
-    gap: 30px;
+  }
+  
+  .pickleball h2 {
+    font-size: 2.5rem;
   }
 
   .gallery-grid {
@@ -646,26 +659,30 @@ footer {
   }
 }
 
-/* Mobile First Polish */
-@media (max-width: 576px) {
+/* Extra Small Devices (iPhone SE, etc) */
+@media (max-width: 480px) {
   .hero h1 {
-    font-size: 3rem !important;
+    font-size: 15vw;
+    line-height: 1;
+    margin-bottom: 10px;
   }
   
-  .hero-content {
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .container {
     padding: 0 15px;
   }
   
-  .section-title {
-    font-size: 2.2rem !important;
+  .review-card {
+    width: 85vw; /* Much safer on mobile */
+    padding: 20px;
+    margin-right: 15px;
   }
   
-  .about-image img {
-    aspect-ratio: 16/9;
-  }
-  
-  section {
-    padding: 60px 0;
+  .menu-collage {
+    grid-template-columns: 1fr;
   }
 }
 
