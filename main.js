@@ -109,35 +109,35 @@ gsap.from(cards, {
   ease: 'power3.out'
 })
 
-// Reviews Slider
-const reviews = [
+// Reviews Marquee Populator
+const reviewsList = [
   { text: "Very lovely food and service. Pickleball court is very good and spacious.", author: "Rahul M." },
   { text: "Great ambience and very responsive service. Must visit!", author: "Sonia P." },
-  { text: "The food is super and service also. The atmosphere and place was good.", author: "Arjun K." }
+  { text: "The food is super and service also. The atmosphere and place was good.", author: "Arjun K." },
+  { text: "Best specialty coffee in Jubilee Hills. The cortado is perfect.", author: "Vikram S." },
+  { text: "Clean courts and great social vibe. Highly recommended for weekend games.", author: "Neha R." },
+  { text: "The artisan skillet breakfast is a game changer. Exceptional quality.", author: "Priya D." }
 ]
 
-let currentReview = 0
-const reviewCard = document.querySelector('.review-card')
+const marquee = document.getElementById('marquee')
+if (marquee) {
+  // Populate marquee
+  const populate = (items) => {
+    items.forEach(review => {
+      const card = document.createElement('div')
+      card.className = 'review-card'
+      card.innerHTML = `
+        <p>"${review.text}"</p>
+        <span class="review-author">— ${review.author}</span>
+      `
+      marquee.appendChild(card)
+    })
+  }
 
-function updateReview() {
-  gsap.to(reviewCard, {
-    opacity: 0,
-    y: 20,
-    duration: 0.5,
-    onComplete: () => {
-      currentReview = (currentReview + 1) % reviews.length
-      reviewCard.querySelector('p').innerText = `"${reviews[currentReview].text}"`
-      reviewCard.querySelector('.review-author').innerText = `— ${reviews[currentReview].author}`
-      gsap.to(reviewCard, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5
-      })
-    }
-  })
+  // Double the items for seamless loop
+  populate(reviewsList)
+  populate(reviewsList)
 }
-
-setInterval(updateReview, 5000)
 
 // Refresh ScrollTrigger on resize
 window.addEventListener('resize', () => {
